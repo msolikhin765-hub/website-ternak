@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kandang Makmur – Peternakan Ayam Terpadu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f8f2;--surface:#fff;--ink:#1d2a22;--muted:#5a6a5f;--green:#1f4d3a;--green-ink:#fff;--yolk:#f2b705;--yolk-ink:#1d2a22;--line:#d9e0d3;--soft:#e8efe1;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121a15;--surface:#1a251e;--ink:#eef3ea;--muted:#a3b3a7;--green:#2f7a5a;--line:#2d3b32;--soft:#22302a}}
+:root[data-theme="dark"]{--bg:#121a15;--surface:#1a251e;--ink:#eef3ea;--muted:#a3b3a7;--green:#2f7a5a;--line:#2d3b32;--soft:#22302a}
+html{scroll-padding-top:calc(64px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.6 "Source Sans 3",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Source Sans 3",system-ui,sans-serif;line-height:1.1;margin:0 0 .5em;letter-spacing:-.02em}
+h1{font-size:clamp(2.4rem,7vw,4.6rem);font-weight:800}
+h2{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:800}
+h3{font-size:1.2rem;font-weight:800;letter-spacing:0}
+p{margin:0 0 1em;max-width:64ch}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--green);z-index:30}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--green);color:var(--green-ink)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.brand{font:800 1.15rem "Bricolage Grotesque",sans-serif;text-decoration:none}
+nav{display:flex;gap:18px;overflow-x:auto;white-space:nowrap}
+nav a{text-decoration:none;font-weight:600;font-size:.95rem;opacity:.9}
+nav a:hover{opacity:1;text-decoration:underline}
+:focus-visible{outline:3px solid var(--yolk);outline-offset:2px}
+.btn{display:inline-block;background:var(--yolk);color:var(--yolk-ink);font-weight:600;padding:13px 24px;border-radius:8px;text-decoration:none;border:0;cursor:pointer;font-size:1rem;font-family:inherit}
+.btn.alt{background:transparent;color:inherit;border:2px solid currentColor}
+.hero{background:var(--green);color:var(--green-ink);padding:84px 0 72px;position:relative;overflow:hidden}
+.hero p{font-size:1.2rem;opacity:.92}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero .rooster{position:absolute;right:16px;bottom:0;width:min(44vw,380px);height:auto}
+.hero .wrap{position:relative;z-index:1}
+.hero h1{max-width:12ch}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;margin-top:48px;max-width:640px;border-top:1px solid #fff5}
+.facts div{padding:16px 16px 0 0}
+.facts b{display:block;font:800 1.9rem "Bricolage Grotesque",sans-serif;color:var(--yolk)}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:24px}
+.card .tag{display:inline-block;background:var(--soft);padding:2px 10px;border-radius:99px;font-size:.85rem;font-weight:600;margin-bottom:10px}
+.alt-bg{background:var(--soft)}
+.lead{color:var(--muted);font-size:1.15rem}
+/* tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0}
+.tabs button{font:600 .95rem inherit;font-family:inherit;padding:10px 16px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--green);color:var(--green-ink);border-color:var(--green)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:24px}
+.panel ul{margin:0;padding-left:1.2em}
+.panel li{margin-bottom:.4em}
+.bar{height:10px;background:var(--soft);border-radius:99px;margin:6px 0 18px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--yolk);transition:width .4s}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:520px;background:var(--surface)}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}
+th{background:var(--green);color:var(--green-ink);font-weight:600}
+.roles{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:24px}
+.roles .card{border-left:6px solid var(--yolk)}
+/* calc */
+.calc{display:grid;gap:28px;grid-template-columns:1fr 1fr}
+@media(max-width:760px){.calc{grid-template-columns:1fr}.hero .rooster{opacity:.3}}
+.field{display:flex;flex-direction:column;margin-bottom:12px}
+.field label{font-weight:600;font-size:.92rem;margin-bottom:4px}
+input{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:100%}
+.res{background:var(--green);color:var(--green-ink);border-radius:10px;padding:24px}
+.res dl{margin:0}.res div{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #fff3}
+.res dt{opacity:.85}.res dd{margin:0;font-weight:600;text-align:right}
+.res .big{font:800 2rem "Bricolage Grotesque",sans-serif;color:var(--yolk);display:block;margin-top:14px}
+.note{font-size:.9rem;color:var(--muted);margin-top:12px}
+.res .note{color:#fffb}
+footer{background:var(--green);color:var(--green-ink);padding:56px 0 calc(40px + env(safe-area-inset-bottom,0px))}
+footer p{opacity:.9}
+.price{font:800 2rem "Bricolage Grotesque",sans-serif;margin:6px 0}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bar i{transition:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="#atas">🐔 Kandang Makmur</a>
+<nav aria-label="Menu utama"><a href="#produk">Produk</a><a href="#operasional">Operasional</a><a href="#manajemen">Manajemen</a><a href="#marketing">Pemasaran</a><a href="#simulasi">Simulasi</a><a href="#kontak">Kontak</a></nav></div></header>
+
+<main id="atas">
+<div class="hero"><svg class="rooster" viewBox="0 0 340 350" role="img" aria-label="Ilustrasi ayam jantan">
+<ellipse cx="180" cy="338" rx="100" ry="8" fill="#000" opacity=".18"/>
+<path d="M240 205C292 185 312 120 292 62C268 110 252 160 232 190Z" fill="#d62828"/>
+<path d="M238 215C300 215 330 160 322 105C290 140 262 175 232 200Z" fill="#f2b705"/>
+<path d="M236 195C270 140 270 80 240 40C232 100 226 150 224 185Z" fill="#3aa17a"/>
+<g stroke="#f2b705" stroke-width="8" stroke-linecap="round" fill="none"><path d="M155 265V325M200 265V325"/><path d="M130 328L155 325L178 330M175 328L200 325L222 330" stroke-width="6"/></g>
+<ellipse cx="170" cy="215" rx="88" ry="62" fill="#c8501e" transform="rotate(-8 170 215)"/>
+<path d="M130 205C150 170 215 175 240 215C210 250 150 245 130 205Z" fill="#8f3512"/>
+<ellipse cx="112" cy="150" rx="32" ry="62" fill="#d8561f" transform="rotate(-12 112 150)"/>
+<circle cx="92" cy="92" r="30" fill="#e0652a"/>
+<path d="M80 68Q76 46 88 50Q90 36 102 44Q112 36 116 50Q126 52 120 68Z" fill="#d62828"/>
+<path d="M66 86L36 98L66 106Z" fill="#f2b705"/>
+<path d="M68 110Q64 134 78 134Q90 132 86 110Z" fill="#d62828"/>
+<circle cx="82" cy="88" r="5" fill="#1d2a22"/><circle cx="80" cy="86" r="1.6" fill="#fff"/>
+</svg><div class="wrap">
+<h1>Ayam sehat dari kandang yang dikelola dengan angka.</h1>
+<p>Kami beternak ayam pedaging dan petelur dengan jadwal ketat, pencatatan harian, dan pengiriman segar ke pasar, warung makan, serta katering.</p>
+<div class="cta"><a class="btn" href="#kontak">Pesan sekarang</a><a class="btn alt" href="#simulasi">Hitung peluang laba</a></div>
+<div class="facts"><div><b>35 hari</b>satu siklus ayam pedaging</div><div><b>&lt; 5%</b>target kematian (mortalitas)</div><div><b>1,6</b>target FCR (rasio pakan)</div></div>
+</div></div>
+
+<section id="produk"><div class="wrap">
+<h2>Produk kami</h2><p class="lead">Empat lini produk, satu standar: segar, bersih, dan konsisten ukurannya.</p>
+<div class="grid">
+<div class="card"><span class="tag">Pedaging</span><h3>Ayam broiler hidup & karkas</h3><p>Panen umur 32–35 hari dengan bobot 1,8–2,2 kg. Tersedia hidup, karkas utuh, atau potong per bagian.</p></div>
+<div class="card"><span class="tag">Petelur</span><h3>Telur ayam ras</h3><p>Dikumpulkan dua kali sehari, disortir per ukuran, dikemas rak 30 butir atau kotak 10 butir.</p></div>
+<div class="card"><span class="tag">Kampung</span><h3>Ayam kampung super</h3><p>Dipelihara 60–70 hari dengan pakan alami tambahan. Cocok untuk restoran dan menu khas.</p></div>
+<div class="card"><span class="tag">Sampingan</span><h3>Pupuk kandang</h3><p>Kotoran diolah menjadi pupuk organik yang dijual ke petani sayur dan buah sekitar.</p></div>
+</div></div></section>
+
+<section id="operasional" class="alt-bg"><div class="wrap">
+<h2>Operasional: satu siklus ayam pedaging</h2>
+<p class="lead">Pilih fase untuk melihat pekerjaan harian, target, dan hal yang harus diwaspadai.</p>
+<div class="tabs" role="tablist" id="tabs"></div>
+<div class="panel" id="panel" role="tabpanel" aria-live="polite"></div>
+</div></section>
+
+<section id="manajemen"><div class="wrap">
+<h2>Manajemen peternakan</h2>
+<p class="lead">Peternakan yang stabil dijalankan oleh peran yang jelas dan angka yang dicek tiap hari.</p>
+<div class="roles">
+<div class="card"><h3>Pemilik / Manajer</h3><p>Menetapkan target siklus, memantau laba rugi, dan memutuskan pembelian DOC serta kontrak pelanggan.</p></div>
+<div class="card"><h3>Kepala kandang</h3><p>Memimpin anak kandang, mengisi recording harian, dan melapor bila ada ayam sakit atau pakan menipis.</p></div>
+<div class="card"><h3>Anak kandang</h3><p>Memberi pakan dan minum, mengecek suhu, membersihkan kandang, dan mengambil ayam mati untuk dicatat.</p></div>
+<div class="card"><h3>Admin & keuangan</h3><p>Mencatat kas masuk-keluar, stok pakan dan obat, serta menagih piutang pelanggan.</p></div>
+</div>
+<h3 style="margin-top:40px">Indikator kinerja yang kami pantau</h3>
+<div class="scroll"><table>
+<thead><tr><th>Indikator</th><th>Target</th><th>Dicek</th></tr></thead>
+<tbody>
+<tr><td>Mortalitas</td><td>Di bawah 5%</td><td>Setiap hari</td></tr>
+<tr><td>FCR (kg pakan per kg bobot)</td><td>1,5 – 1,7</td><td>Mingguan</td></tr>
+<tr><td>Bobot rata-rata</td><td>Sesuai standar strain per umur</td><td>Mingguan, sampel 5%</td></tr>
+<tr><td>Indeks Performa (IP)</td><td>Di atas 350</td><td>Tiap panen</td></tr>
+<tr><td>Margin bersih per ekor</td><td>Positif dan stabil</td><td>Tiap siklus</td></tr>
+</tbody></table></div>
+<p class="note">Pencatatan wajib: populasi, kematian, pakan terpakai, obat/vaksin, suhu kandang, dan penimbangan. Catatan inilah dasar keputusan, bukan perkiraan.</p>
+</div></section>
+
+<section id="marketing" class="alt-bg"><div class="wrap">
+<h2>Pemasaran: dari kandang ke meja</h2>
+<p class="lead">Jadwal panen sudah diketahui 35 hari sebelumnya, jadi penjualan dipesan lebih dulu agar ayam tidak menunggu pembeli.</p>
+<div class="grid">
+<div class="card"><h3>Pasar tradisional</h3><p>Pedagang langganan dengan kontrak harian atau mingguan. Volume terbesar, harga mengikuti pasar.</p></div>
+<div class="card"><h3>Restoran, warung, katering</h3><p>Harga kontrak tetap, pengiriman terjadwal, potongan sesuai pesanan. Margin lebih baik dan pembayaran terencana.</p></div>
+<div class="card"><h3>Reseller & rumah tangga</h3><p>Pesan lewat WhatsApp, dikirim di hari yang sama. Grup pelanggan dipakai untuk info stok dan harga hari ini.</p></div>
+<div class="card"><h3>Marketplace & media sosial</h3><p>Foto kandang dan proses panen membangun kepercayaan. Video singkat tiap minggu, ulasan pelanggan dipajang.</p></div>
+</div>
+<h3 style="margin-top:40px">Strategi harga dan loyalitas</h3>
+<div class="grid">
+<div class="card"><h3>Eceran</h3><div class="price">Harga pasar</div><p>Untuk pembelian satuan. Gratis ongkir di radius dekat dengan minimum pesanan.</p></div>
+<div class="card"><h3>Langganan</h3><div class="price">Diskon volume</div><p>Pesan tetap tiap minggu mendapat harga lebih rendah dan prioritas stok.</p></div>
+<div class="card"><h3>Kontrak bulanan</h3><div class="price">Harga terkunci</div><p>Untuk restoran dan katering: harga disepakati satu bulan, pembayaran tempo terbatas.</p></div>
+</div>
+</div></section>
+
+<section id="simulasi"><div class="wrap">
+<h2>Simulasi laba satu siklus broiler</h2>
+<p class="lead">Ubah angka sesuai kondisi Anda. Hasil dihitung langsung.</p>
+<div class="calc">
+<div id="inputs"></div>
+<div class="res"><dl id="out"></dl><span class="big" id="laba"></span><p class="note">Ini simulasi sederhana. Hasil nyata bergantung pada harga pasar, kualitas DOC, cuaca, dan manajemen kandang.</p></div>
+</div></div></section>
+</main>
+
+<footer id="kontak"><div class="wrap">
+<h2>Siap memesan atau bermitra?</h2>
+<p>Hubungi kami untuk harga hari ini, jadwal panen terdekat, atau informasi kemitraan kandang.</p>
+<p><a class="btn" href="https://wa.me/6281200000000" rel="noopener">Chat WhatsApp</a></p>
+<p>WhatsApp: 0812-0000-0000 · Email: halo@kandangmakmur.example<br>Ganti kontak di atas dengan data usaha Anda.</p>
+</div></footer>
+
+<script>
+const phases=[
+{n:"Persiapan",d:"7 hari sebelum DOC",p:0,t:["Kosongkan, bersihkan, dan cuci kandang serta peralatan.","Disinfeksi, kapur dinding, lalu istirahatkan kandang minimal 7 hari.","Pasang litter (sekam) setebal 5–8 cm, periksa atap, tirai, dan listrik.","Siapkan brooder, pemanas, pakan starter, vitamin, dan vaksin."],w:"Kandang yang lembap atau belum bersih menyebabkan penyakit sejak minggu pertama."},
+{n:"Starter",d:"Hari 1–10",p:25,t:["Terima DOC, hitung jumlah, catat kondisi kedatangan.","Jaga suhu brooder 32–34 °C di hari pertama, turunkan bertahap.","Beri air gula atau vitamin, pakan starter sedikit-sedikit tapi sering.","Vaksin ND dan IB sesuai program dokter hewan."],w:"Anak ayam menggerombol dekat pemanas berarti terlalu dingin; menjauh dan terengah berarti terlalu panas."},
+{n:"Growing",d:"Hari 11–24",p:60,t:["Ganti ke pakan grower, lebarkan area kandang.","Timbang sampel mingguan dan bandingkan dengan standar.","Cek litter agar tidak basah, atur ventilasi dan kepadatan.","Booster vaksin Gumboro bila dijadwalkan."],w:"Amonia tinggi dari litter basah memicu gangguan pernapasan."},
+{n:"Finishing",d:"Hari 25–35",p:85,t:["Ganti ke pakan finisher, pastikan air minum selalu bersih.","Hentikan obat sesuai masa henti (withdrawal time) sebelum panen.","Konfirmasi pembeli dan armada panen, tentukan jam tangkap.","Puasakan pakan 4–6 jam sebelum panen agar bobot tidak terbuang."],w:"Panas siang hari: sediakan kipas, air dingin, dan panen di pagi atau malam."},
+{n:"Panen",d:"Hari 32–35 dan sesudahnya",p:100,t:["Timbang per keranjang dan catat bobot serta jumlah.","Kirim langsung, serahkan nota, catat pembayaran.","Bersihkan kandang, jual pupuk kandang, hitung laba rugi siklus.","Evaluasi FCR, mortalitas, IP, lalu rencanakan siklus berikutnya."],w:"Evaluasi tiap siklus adalah cara terbaik menaikkan laba siklus berikutnya."}];
+const tabs=document.getElementById('tabs'),panel=document.getElementById('panel');
+function show(i){[...tabs.children].forEach((b,j)=>b.setAttribute('aria-selected',j===i));const f=phases[i];
+panel.innerHTML=`<h3>${f.n} <span style="font-weight:400;color:var(--muted)">(${f.d})</span></h3><div class="bar" aria-hidden="true"><i style="width:${f.p}%"></i></div><ul>${f.t.map(x=>`<li>${x}</li>`).join('')}</ul><p class="note"><b>Waspada:</b> ${f.w}</p>`}
+phases.forEach((f,i)=>{const b=document.createElement('button');b.textContent=f.n;b.setAttribute('role','tab');b.onclick=()=>show(i);tabs.appendChild(b)});show(0);
+
+const F=[["n","Jumlah DOC (ekor)",5000],["doc","Harga DOC per ekor (Rp)",7000],["pk","Harga pakan per kg (Rp)",8000],["fcr","FCR",1.6],["bw","Bobot panen (kg/ekor)",2],["hj","Harga jual per kg hidup (Rp)",21000],["m","Mortalitas (%)",5],["lain","Biaya lain per ekor: obat, vaksin, tenaga, listrik (Rp)",1500]];
+const box=document.getElementById('inputs');
+F.forEach(([k,l,v])=>{box.insertAdjacentHTML('beforeend',`<div class="field"><label for="${k}">${l}</label><input id="${k}" type="number" inputmode="decimal" step="any" min="0" value="${v}"></div>`)});
+const rp=x=>"Rp "+Math.round(x).toLocaleString("id-ID");
+function hit(){const g=k=>parseFloat(document.getElementById(k).value)||0;
+const n=g('n'),hidup=n*(1-g('m')/100),bobot=hidup*g('bw'),pakan=bobot*g('fcr');
+const bDoc=n*g('doc'),bPakan=pakan*g('pk'),bLain=n*g('lain'),biaya=bDoc+bPakan+bLain,omzet=bobot*g('hj'),laba=omzet-biaya;
+const rows=[["Ayam dipanen",Math.round(hidup).toLocaleString("id-ID")+" ekor"],["Total bobot panen",Math.round(bobot).toLocaleString("id-ID")+" kg"],["Pakan terpakai",Math.round(pakan).toLocaleString("id-ID")+" kg"],["Biaya DOC",rp(bDoc)],["Biaya pakan",rp(bPakan)],["Biaya lain",rp(bLain)],["Total biaya",rp(biaya)],["Pendapatan",rp(omzet)],["Laba per ekor DOC",rp(n?laba/n:0)]];
+document.getElementById('out').innerHTML=rows.map(r=>`<div><dt>${r[0]}</dt><dd>${r[1]}</dd></div>`).join('');
+document.getElementById('laba').textContent=(laba>=0?"Laba ":"Rugi ")+rp(Math.abs(laba))}
+box.addEventListener('input',hit);hit();
+</script>
+</body>
+</html>
